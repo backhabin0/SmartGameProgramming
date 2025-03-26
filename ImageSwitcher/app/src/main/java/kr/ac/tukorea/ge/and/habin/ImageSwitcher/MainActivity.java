@@ -12,11 +12,11 @@ import androidx.core.view.WindowInsetsCompat;
 import kr.ac.tukorea.ge.and.habin.ImageSwitcher.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
+    private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater())c v
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
 
     }
 }
