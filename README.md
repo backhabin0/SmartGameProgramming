@@ -80,7 +80,48 @@
 - `GoodsManager.java`: 굿즈 생성, 등록, 교환 관리  
 - `FanPointManager.java`: 덕력 포인트 처리 및 랭킹 연동  
 
----
+🧩 GameObject Class 구성
+1. Customer
+그림 구성: 고객 캐릭터를 보여주는 TextView 및 배경 UI
+
+5초 간격으로 최대 3명 등장
+
+무작위로 "hamburger", "fries", "coke" 주문
+
+상호작용:
+
+플레이어가 제출 버튼을 누르면 가장 앞선 고객의 주문과 제작 음식 비교
+
+일치 시 고객 제거 + 돈 증가
+
+핵심 코드:
+if (target.order.equals(playerCookedFood)) {
+    customers.remove(target);
+    money += 500;
+}
+2. CookingLogic
+역할: 요리 제작 로직 담당 (재료 선택, 굽기, 합치기 등)
+
+주요 기능:
+
+재료 목록 추적
+
+굽기 버튼 → "rawmeat" → "meat" 로 변환
+
+합치기 버튼 → "bread + meat + bread" → "hamburger" 등으로 완성
+
+핵심 코드:
+public boolean checkAndClearOrder(String order) {
+    if (order.equals("hamburger") && currentItems.containsAll(...)) {
+        currentItems.clear();
+        return true;
+    }
+}
+
+
+😵 구현 중 어려웠던 점
+재료 순서에 상관없는 조합 검사가 처음엔 "bread+meat+bread" 처럼 문자열 비교라서 실패함 → Set.containsAll() 로 해결
+
 
 ## 🔗 발표 영상 링크 (예정)
 추후 추가 예정
