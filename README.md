@@ -79,7 +79,7 @@
 ## 📂 주요 클래스 구조 (예정)
 
 - `MainScene.java`: 팬 활동 UI 및 흐름 관리  
-- `MinigameActivity.java`: 메시지 송수신 및 답장 처리  
+- `MinigameActivity.java`: 요리미니게임  
 - `GoodsManager.java`: 굿즈 생성, 등록, 교환 관리  
 - `FanPointManager.java`: 덕력 포인트 처리 및 랭킹 연동  
 
