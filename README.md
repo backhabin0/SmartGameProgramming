@@ -83,7 +83,7 @@
 - `GoodsManager.java`: 굿즈 생성, 등록, 교환 관리  
 - `FanPointManager.java`: 덕력 포인트 처리 및 랭킹 연동  
 
-##🧩 GameObject Class 구성
+## 🧩 GameObject Class 구성
 1. Customer
 그림 구성: 고객 캐릭터를 보여주는 TextView 및 배경 UI
 
@@ -122,7 +122,7 @@ public boolean checkAndClearOrder(String order) {
 }
 
 
-##😵 구현 중 어려웠던 점
+## 😵 구현 중 어려웠던 점
 재료 순서에 상관없는 조합 검사가 처음엔 "bread+meat+bread" 처럼 문자열 비교라서 실패함 → Set.containsAll() 로 해결
 
 
