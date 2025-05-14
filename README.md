@@ -83,9 +83,11 @@
 - `GoodsManager.java`: 굿즈 생성, 등록, 교환 관리  
 - `FanPointManager.java`: 덕력 포인트 처리 및 랭킹 연동  
 
-## 🧩 GameObject Class 구성
+##  GameObject Class 구성
 1. Customer
 그림 구성: 고객 캐릭터를 보여주는 TextView 및 배경 UI
+
+동작 구성:
 
 5초 간격으로 최대 3명 등장
 
@@ -98,12 +100,16 @@
 일치 시 고객 제거 + 돈 증가
 
 핵심 코드:
+
+java
+복사
+편집
 if (target.order.equals(playerCookedFood)) {
     customers.remove(target);
     money += 500;
 }
 2. CookingLogic
-역할: 요리 제작 로직 담당 (재료 선택, 굽기, 합치기 등)
+책임 역할: 요리 제작 로직 담당 (재료 선택, 굽기, 합치기 등)
 
 주요 기능:
 
@@ -114,13 +120,47 @@ if (target.order.equals(playerCookedFood)) {
 합치기 버튼 → "bread + meat + bread" → "hamburger" 등으로 완성
 
 핵심 코드:
+
+java
+복사
+편집
 public boolean checkAndClearOrder(String order) {
     if (order.equals("hamburger") && currentItems.containsAll(...)) {
         currentItems.clear();
         return true;
     }
 }
+3. btnServe (제출 버튼)
+상호작용:
 
+클릭 시 가장 앞 고객의 주문과 현재 요리 비교
+
+일치하면 돈 획득
+
+핵심 코드:
+
+java
+복사
+편집
+btnServe.setOnClickListener(v -> {
+    if (!customers.isEmpty()) {
+        String order = customers.get(0).order;
+        boolean correct = cookingLogic.checkAndClearOrder(order);
+        if (correct) money += 500;
+    }
+});
+4. UI Buttons (btnBread, btnMeat, btnPotato, btnCoke, btnGrill, btnCombine, btnFryMachine)
+그림 구성: 각 재료/기기 별 이미지 버튼 (90~144dp 크기)
+
+동작 구성:
+
+클릭 시 재료 추가 또는 상태 변화
+
+Grill → 고기 굽기
+
+FryMachine → 감자튀김 조리
+
+Combine → 조합하여 완성 음식 생성
 
 ## 😵 구현 중 어려웠던 점
 재료 순서에 상관없는 조합 검사가 처음엔 "bread+meat+bread" 처럼 문자열 비교라서 실패함 → Set.containsAll() 로 해결
