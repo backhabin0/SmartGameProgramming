@@ -159,9 +159,14 @@ btnServe.setOnClickListener(v -> {
     }
 });
 
+```
 
-## 😵 구현 중 어려웠던 점
+---
+### 😵 구현 중 어려웠던 점
 재료 순서에 상관없는 조합 검사가 처음엔 "bread+meat+bread" 처럼 문자열 비교라서 실패함 → Set.containsAll() 로 해결
+
+
+
 ![image](https://github.com/user-attachments/assets/8e0d277f-43ce-4669-8dd2-6283b39d02bb)
 
 ![image](https://github.com/user-attachments/assets/3625a98b-e1ce-4003-a4a6-7319fce10a63)
